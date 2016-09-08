@@ -1,10 +1,10 @@
 var prompt = require("prompt");
-prompt.start();
-
 var Word = require("./word.js");
 
+prompt.start();
+
 var game = {
-  wordBank: ["Work","Experience","Excellent","Test"],
+  wordBank: ["Work","Experience","Excellent","Test", "Private"],
   guessesRemaining : 10,
   currentWrd : null,
   startGame : function(wrd){
@@ -17,7 +17,7 @@ var game = {
 
   keepPrompting: function() {
     var self = this;
-    prompt.get(["guessLetter"], function(err, result) {
+    inquire.prompt(["guessLetter"], function(err, result) {
       console.log("The Letter or space you guessed is : "+result.guessLetter);
       var findHowManyOfUserGuess = self.currentWrd.checkIfLetterFound(result.guessLetter);
 

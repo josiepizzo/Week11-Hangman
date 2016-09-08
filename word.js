@@ -18,7 +18,7 @@ function Word(wrd){
         if(this.lets[i].charac === guessLetter) {
           this.lets[i].appear = true;
           ++whatToReturn;
-          console.log("What to return"+whatToReturn);
+          console.log("What to return"+ whatToReturn);
           return whatToReturn;
         }
       }
