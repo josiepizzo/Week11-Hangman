@@ -1,3 +1,3 @@
 exports.game = {
-    wordBank : ["Work", "Experience", "Excellent", "Test", "Private"]
+    wordBank : ["work", "experience", "excellent", "test", "private"]
 };
