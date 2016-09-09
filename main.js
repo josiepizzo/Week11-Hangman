@@ -9,9 +9,10 @@ var game = {
     guessesRemaining: 10,
     currentWrd: null,
     startGame: function(wrd) {
+      //make sure the user has 10 guesses
       this.resetGuessesRemaining();
-      // var randomWord = this.wordBank[Math.floor(Math.random() * this.wordBank.length)];
-      //console.log(randomWord); // Comment out after testing
+
+      //get a random word from the array
       this.currentWrd = new Word(this.wordBank[Math.floor(Math.random()* this.wordBank.length)]);
 
       this.currentWrd.getLets();
@@ -28,9 +29,9 @@ var game = {
       prompt.get(["guessLetter"], function(err, result) {
           console.log("The Letter or space you guessed is : " + result.guessLetter);
 
+          //this checks if the letter was found and if it is then it sets that specific letter in the word to be found
           var findHowManyOfUserGuess = self.currentWrd.checkIfLetterFound(result.guessLetter);
 
-          // console.log("Guess" + findHowManyOfUserGuess);
 
           if (findHowManyOfUserGuess == 0) {
             console.log("You Guessed Wrong!");
@@ -50,8 +51,7 @@ var game = {
           if ((self.guessesRemaining > 0) && (self.currentWrd.found == false)) {
             self.keepPrompting();
           } else if (self.guessesRemaining == 0) {
-              console.log("Game Over Bro", self.currentWrd.word);
-              console.log("Get with the program bro");
+              console.log("Game Over Bro - ", self.currentWrd.word);
             } else {
               console.log(self.currentWrd.wordRender());
             }
